@@ -159,7 +159,7 @@ tabs3();
 const sendForm = () =>{
 
   const loadMessage = 'загрузка',
-      errorMessage = 'что то пошло не так',
+      errorMessage = 'Ошибка, Ваши данные некорректны',
       successMessage = 'ваше сообщение отправлено';
  
   const statusMessage = document.createElement('div');
@@ -186,7 +186,8 @@ const sendForm = () =>{
        },
   
        user_phone:{
-        pattern: new RegExp('(\\+?7|8)[0-9]{10,18}', 'g'),
+            // pattern: new RegExp('(\\+?7|8)[0-9]{10,18}', 'g'),
+       pattern: new RegExp('[0-9]', 'g'),
         message: 'Invalid message'
        }
      };
