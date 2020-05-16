@@ -1,43 +1,36 @@
-'use strict'; 
+ 'use strict'; 
 
 
  //popup модальное окно 3
 
- const togglePopUp = () =>{
+
+ const togglePopUp3 = () =>{
+
+  const popup = document.querySelectorAll('.popup'),
+  formBtn1 = document.querySelectorAll('.formbtn');
 
 
-    const popup = document.querySelectorAll('.popup'),
-    formBtn = document.querySelectorAll('#formbtn');
-   
-    popup.forEach((item, i) => {
+//открытие окна
+formBtn1.forEach((item, i) => {
+  //console.log(formBtn1[i]);
+  formBtn1[i].addEventListener('click', event=> {
+      //evetn.preventDefault();
+      
+      var target = event.target;
+      
+      let eBtn=target.getAttribute('data-id')
+      
+document.getElementById(eBtn).style.display='block';
+    })
 
-   
-    formBtn.forEach((elem) => {
-          elem.addEventListener('click', () => {
-            popup[i].style.display = 'block';
-        let op=0;
-        const addOpacity = () =>{
-                      
-              if(op <1){ 
-                  op +=  0.01; 
-                  popup[i].style.opacity = op;
-            setTimeout(addOpacity, 10);
-              }
-          };
-          addOpacity();
-     
- 
-      });
- 
-  });
- 
-  popup.forEach((elem) => {
-    elem.addEventListener('click', (event)=>{
-    
-    
+  })
+
+  popup.forEach((item, i) => {
+    popup[i].addEventListener('click', (event)=>{
+        
         let target = event.target;
-     
-     
+        console.log(target);
+        
            if(target.classList.contains('popup-close')){
             popup[i].style.display = 'none'; 
             
@@ -53,17 +46,13 @@
 
 
   });
-});//forEach popup
 
 
 
+};
+togglePopUp3();
 
-
- 
- };
- togglePopUp();
-
- 
+ //больше
 
 
 
@@ -92,8 +81,9 @@ const tabs= () =>{
                        };
 
           aTab.forEach((item, i) => {
-             aTab[i].addEventListener('click', function() {
-               
+             aTab[i].addEventListener('click', (evetn) =>{
+              evetn.preventDefault();
+      
             
                 toggleTabContent(i);
                } ); });
@@ -120,6 +110,49 @@ const tabs2= () =>{
     
            } ;
 tabs2();
+
+
+const tabs3= () =>{
+  const  aTab3 = document.querySelectorAll('.construct-btn'),
+        panelCollapse= document.querySelectorAll('.panel-collapse');
+ 
+        const toggleTabContent3 =(index)=>{
+          
+         for(let i=0; i< panelCollapse.length; i++){
+         
+
+             if(index === (i-1)){
+               
+                panelCollapse[i].classList.remove('collapse');
+                panelCollapse[i].classList.remove('in');
+              }else{
+                
+                panelCollapse[i].classList.add('collapse');
+                panelCollapse[i].classList.remove('in');
+              }
+          }
+                     };
+
+        aTab3.forEach((item, i) => {
+           aTab3[i].addEventListener('click', function() {
+             
+          
+              toggleTabContent3(i);
+             } ); });
+           } ;
+tabs3();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -259,6 +292,6 @@ const sendForm = () =>{
  
 
 
-
+//калькулятор
 
 
